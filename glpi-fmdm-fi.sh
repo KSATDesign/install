@@ -68,14 +68,15 @@ git clone https://github.com/flyve-mdm/glpi-plugin.git /usr/share/glpi/plugins/f
 cd /usr/share/glpi/plugins/fusioninventory
 make clean
 make
-composer install
+yes | composer install
 
 cd /usr/share/glpi/plugins/flyvemdm
 
 composer init
+wait
 make clean
 make
-composer install
+yes | composer install
 cd ~
 
 cat <<EOF >>/etc/systemd/system/flyvemdm.service
