@@ -2,7 +2,7 @@
 
 sudo yum -y install http://mirror.de-labrusse.fr/NethServer/7/x86_64/nethserver-stephdl-1.1.9-1.ns7.sdl.noarch.rpm
 
-sudo yum -y install nethserver-glpi-latest mysql-devel gcc automake autoconf libtool make unzip git composer mosquitto mosquitto-clients mosquitto-dev
+sudo yum -y install nethserver-glpi-latest mysql-devel gcc automake autoconf libtool make unzip git composer mosquitto mosquitto-clients mosquitto-dev openssl-perl
 
 mosquitto -h | head -n 1 > mos.txt && sed -i "s/mosquitto version /mosquitto-/" mos.txt
 
