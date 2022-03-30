@@ -24,11 +24,11 @@ auth_opt_backends mysql
 
 auth_opt_host localhost
 
-auth_opt_port 3306
+auth_opt_port 8105
 
 auth_opt_user glpi
 
-auth_opt_dbname glpidb
+auth_opt_dbname glpi
 
 auth_opt_pass $(cat /var/lib/nethserver/secrets/glpi)
 
@@ -42,7 +42,14 @@ listener 8883
 
 cafile /etc/mosquitto/certs/cachain.pem
 
-certfile /etc/mosquitto/certs/cachain.pem#!/usr/bin/env bash#!/usr/bin/env bash#!/usr/bin/env bash
+certfile /etc/mosquitto/certs/cachain.pem
+
+keyfile /etc/mosquitto/certs/private-key.key
+
+tls_version tlsv1.2
+
+ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:ECDHE-ECDSA-RC4-SHA:AES128:AES256:HIGH:!RC4:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!MD5:!PSK
+" > /etc/mosquitto/conf.d/flyvemdm.conf
 
 sudo yum -y install http://mirror.de-labrusse.fr/NethServer/7/x86_64/nethserver-stephdl-1.1.9-1.ns7.sdl.noarch.rpm
 
